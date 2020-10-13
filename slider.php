@@ -23,8 +23,5 @@
 		<p id="msg5" style="display: none; color: red; "> attempt unsuccessfull </p>
 		</form>
 
-
-<!-- <img id="imgbanner" src="" width="500"> -->
-
 </body>
 </html>	
