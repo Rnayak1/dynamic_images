@@ -3,7 +3,7 @@
 
 	$username = "root";
 	$password = "";
-	$hostname = "127.0.0.1"; 
+	$hostname = "localhost"; 
 	$database = "demo";
 	$dbhandle = mysqli_connect($hostname, $username, $password, $database)or die("Unable to connect to MySQL");
 	/*date_default_timezone_set('Asia/Kolkata');
@@ -23,19 +23,21 @@
  	 	 $stop = $_POST['stop1'];
  	 	 echo($tmp_name);
  	 	 var_dump(move_uploaded_file($tmp_name, "$path/$name"));
-
- 	 	$check=mysqli_query($dbhandle,"select * from slider1 where imname = '$name'");
+		 $name_0 = $dbhandle -> real_escape_string($name);
+ 	 	$check=mysqli_query($dbhandle,"select * from slider1 where imname = '$name_0'");
         $checkrows=mysqli_num_rows($check);
         if($checkrows>0) 
          {
-            echo "<br>"."image with same name already exist in database "."<br>";
+            echo "<br>Image with same name already exist in database. Please try again.<br>";
           }
         else
          {
-           $sql = "INSERT INTO slider1(imid,imname,stdate,spdate) VALUES ('','$name','$start','$stop')";
+		$start_0 = $dbhandle -> real_escape_string($start);
+		$stop_0 = $dbhandle -> real_escape_string($stop);
+           $sql = "INSERT INTO slider1(imid,imname,stdate,spdate) VALUES ('','$name_0','$start_0','$stop_0')";
            if ($dbhandle->query($sql) === TRUE) 
             {
-              echo "image uploaded successfully go back and refresh your page ";
+              echo "Image uploaded successfully! Go back and refresh your page ";
             } 
            else 
             {
