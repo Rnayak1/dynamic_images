@@ -23,7 +23,7 @@ $(document).ready( function()
 						console.log(x);
 						stoptime = new Date();
 						time = stoptime.getHours()+":"+stoptime.getMinutes();
-						console.log(time);
+						console.log('The time is ',time);
 						console.log(obj.stop);
 						if(obj.stop >= time)
 						{
